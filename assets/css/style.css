@@ -1,6 +1,6 @@
-*{
-    margin: 0;
-    padding: 0%;
+
+:root {
+
 }
 
 body {
@@ -11,24 +11,23 @@ body {
 header {
     display: flex;
     flex: auto;
-    width: auto;
+    justify-content: space-between;
     margin-top: 10px;
     margin-bottom: 10px;
 }
-.scores {
+/* .scores {
     margin-left: 10px;
 }
-
+*/
 .timer-container {
-    display: flex;
-    justify-content: right;
-    padding-left: 75%;
-}
+    margin-right: 20px;
 
+}
 main {
-    margin-top: 50px;
-}
-
-.display1{
+    border: 5px solid purple;
     text-align: center;
+    padding: 5%;
 }
+.display1{
+    
+} 
