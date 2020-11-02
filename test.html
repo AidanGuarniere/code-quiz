@@ -4,116 +4,132 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coding Quiz Page</title>
+    <link rel="stylesheet" href="./assets/css/style2.css" >
 </head>
 <body>
+    <div id="root"></div>
     <script>
-        var questions = [
-        { question: "What is 1 + 1?", answer: "1234" },
-        { question: "What is 2 + 2?", answer: "1234" },
-        { question: "What is 1 + 2?", answer: "1234" },
-        { question: "What is 0 + 1?", answer: "1234" },
-        { question: "What is 2 x 2?", answer: "1234" },
-        { question: "What is 4 x 1?", answer: "1234" }
-      ];
+    //     var questions = [
+    //     { question: "What is 1 + 1?", answer: "1234", answercheck: 2 },
+    //     { question: "What is 2 + 2?", answer: "1234", answercheck: 4 },
+    //     { question: "What is 1 + 2?", answer: "1234", answercheck: 3 },
+    //     { question: "What is 0 + 1?", answer: "1234", answercheck: 4 },
+    //     { question: "What is 2 x 2?", answer: "1234" },
+    //     { question: "What is 4 x 1?", answer: "1234" }
+    //   ];
 
-    i = 0;
-    questions[i].answer.split();
-    //questions
-    var body = document.body;
+    // i = 0;
+    // questions[i].answer.split();
+    // //questions
+    // var body = document.body;
     
 
-    var h1El = document.createElement("h1");
-    h1El.textContent = questions[i].question;
-    h1El.setAttribute("style", "text-align: center");
-    body.appendChild(h1El)
+    // var h1El = document.createElement("h1");
+    // h1El.textContent = questions[i].question;
+    // h1El.setAttribute("style", "text-align: center");
+    // body.appendChild(h1El)
     
-    //list container
-    var divEl = document.createElement("div")
-    divEl.setAttribute("style", "margin-left: 40%; ")
-    body.appendChild(divEl)
+    // //list container
+    // var divEl = document.createElement("div")
+    // divEl.setAttribute("style", "margin-left: 40%; ")
+    // body.appendChild(divEl)
 
-    
+    const array = [1,2,3,4,5,6,7,8,9]
+
+    for(let i=0; i < array.length; i++){
+    document.getElementById("root")  .innerHTML += `
+    <div>
+    <button id = ${array[i]} "btn" class = "btn" > BUTTON ${array[i]}</button>
+    <span>0</span>
+    </div>`
+    }
 
     //answers 
     
-        var button1 = document.createElement("button");
-        button1.textContent = questions[i].answer[0];
-        button1.setAttribute("style", "display: block; width:100px")
-        divEl.appendChild(button1);
+        // var button1 = document.createElement("button");
+        // button1.textContent = questions[i].answer[0];
+        // button1.setAttribute("style", "display: block; width:100px")
+        // divEl.appendChild(button1);
 
-        var button2 = document.createElement("button");
-        button2.textContent = questions[i].answer[1];
-        button2.setAttribute("style", "display: block; width:100px")
-        divEl.appendChild(button2);
+        // var button2 = document.createElement("button");
+        // button2.textContent = questions[i].answer[1];
+        // button2.setAttribute("style", "display: block; width:100px")
+        // divEl.appendChild(button2);
 
-        var button3 = document.createElement("button");
-        button3.textContent = questions[i].answer[2];
-        button3.setAttribute("style", "display: block; width:100px")
-        divEl.appendChild(button3);
+        // var button3 = document.createElement("button");
+        // button3.textContent = questions[i].answer[2];
+        // button3.setAttribute("style", "display: block; width:100px")
+        // divEl.appendChild(button3);
 
-        var button4 = document.createElement("button");
-        button4.textContent = questions[i].answer[3];
-        button4.setAttribute("style", "display: block; width:100px")
-        divEl.appendChild(button4);
+        // var button4 = document.createElement("button");
+        // button4.textContent = questions[i].answer[3];
+        // button4.setAttribute("style", "display: block; width:100px")
+        // divEl.appendChild(button4);
 
-        // when answer is clicked do something 
+        // // when answer is clicked do something 
         
         
-        button1.addEventListener("click", function(){
+        // button1.addEventListener("click", function(){
             
-            if (i < questions.length){
-                i++
-                //new question
-                h1El.textContent = questions[i].question;
-                button1.textContent = questions[1].answer[0];
-                button2.textContent = questions[1].answer[1];
-                button3.textContent = questions[1].answer[2];
-                button4.textContent = questions[1].answer[3];
-            }
-            console.log(i)
-        })
+        //     if (i < questions.length){
+        //         i++
+        //         //new question
+        //         h1El.textContent = questions[i].question;
+        //         button1.textContent = questions[1].answer[0];
+        //         button2.textContent = questions[1].answer[1];
+        //         button3.textContent = questions[1].answer[2];
+        //         button4.textContent = questions[1].answer[3];
+        //     }
+        //     console.log(i)
+        // })
 
-        button2.addEventListener("click", function(){
+        // button2.addEventListener("click", function(){
             
-            if (i < questions.length){
-                i++
-                //new question
-                h1El.textContent = questions[i].question;
-                button1.textContent = questions[2].answer[0];
-                button2.textContent = questions[2].answer[1];
-                button3.textContent = questions[2].answer[2];
-                button4.textContent = questions[2].answer[3];
-            }
-            console.log(i)
-        })
+        //     if (i < questions.length){
+        //         i++
+        //         //new question
+        //         h1El.textContent = questions[i].question;
+        //         button1.textContent = questions[2].answer[0];
+        //         button2.textContent = questions[2].answer[1];
+        //         button3.textContent = questions[2].answer[2];
+        //         button4.textContent = questions[2].answer[3];
+        //     }
+        //     console.log(i)
+        // })
 
-        button3.addEventListener("click", function(){
+        // button3.addEventListener("click", function(){
             
-            if (i < questions.length){
-                i++
-                //new question
-                h1El.textContent = questions[i].question;
-                button1.textContent = questions[3].answer[0];
-                button2.textContent = questions[3].answer[1];
-                button3.textContent = questions[3].answer[2];
-                button4.textContent = questions[3].answer[3];
-            }
-            console.log(i)
-        })
+        //     if (i < questions.length){
+        //         i++
+        //         //new question
+        //         h1El.textContent = questions[i].question;
+        //         button1.textContent = questions[3].answer[0];
+        //         button2.textContent = questions[3].answer[1];
+        //         button3.textContent = questions[3].answer[2];
+        //         button4.textContent = questions[3].answer[3];
+        //     }
+        //     console.log(i)
+        // })
 
-        button4.addEventListener("click", function(){
+        // button4.addEventListener("click", function(){
             
-            if (i < questions.length){
-                i++
-                //new question
-                h1El.textContent = questions[i].question;
-                button1.textContent = questions[4].answer[0];
-                button2.textContent = questions[4].answer[1];
-                button3.textContent = questions[4].answer[2];
-                button4.textContent = questions[4].answer[3];
-            }
-            console.log(i)
-        })
+        //     if (i < questions.length){
+        //         i++
+        //         //new question
+        //         h1El.textContent = questions[i].question;
+        //         button1.textContent = questions[4].answer[0];
+        //         button2.textContent = questions[4].answer[1];
+        //         button3.textContent = questions[4].answer[2];
+        //         button4.textContent = questions[4].answer[3];
+        //     }
+        // console.log(i)
+        // })
+
+
+
+
+
+
     //unordered list
     // var ulEl = document.createElement("ul");
     // ulEl.setAttribute("style", "list-style: none;")
