@@ -1,33 +1,29 @@
-
-:root {
-
-}
-
 body {
     font-family: Georgia, 'Times New Roman', Times, serif;
     
 }
 
-header {
+.header {
     display: flex;
     flex: auto;
     justify-content: space-between;
     margin-top: 10px;
     margin-bottom: 10px;
 }
-/* .scores {
-    margin-left: 10px;
-}
-*/
+
+
 .timer-container {
     margin-right: 20px;
 
 }
+
 main {
-    border: 5px solid purple;
+    border: 5px solid rgb(63, 223, 183);
+    background-color: aliceblue;
     text-align: center;
     padding: 5%;
 }
-.display1{
-    
-} 
+
+.hidden {
+    display: none;
+}

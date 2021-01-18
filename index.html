@@ -1,55 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Code Quiz</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
-</head>
-<body>
-
-    <header class = "header">
-        <!--view high score-->
-        <div class="scores">
-            <button>
-                <h2>View High Score</h2>
-            </button>
-        </div>
-
-        <!--display timer-->
-        <div class="timer-container">
-            <p>Time: <span id="set-timer"></span></p>
-        </div>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <!--view high score-->
+      <div class="scores">
+        <button>
+          <h2>View High Score</h2>
+        </button>
+      </div>
+      <!--display timer-->
+      <div class="timer-container">
+        <p>Time: <span id="set-timer"></span></p>
+      </div>
     </header>
+
     <main>
+      <!--quiz intro-->
+      <div class="intro container" id="intro">
+        <h3>Coding Quiz Challenge</h3>
+        <p>
+          Try to answer the following questions within the time limit. Keep in
+          mind that incorrect answers will penalize your score/time by 10
+          seconds!
+        </p>
+        <button type="button" class="start-button" id = "button"> Start Quiz! </button>
+      </div>
 
-        
-        <!--quiz section-->
-        <div class = "display1">
-            <h3>Coding Quiz Challenge</h3>
-            <br>
-            <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by 10 seconds!</p>
-            <div class="start-button">
-                <a href="test.html">Start Quiz</a>
-            </div>
-        </div>
+      <!--quiz section-->
+      <div class="display1 container hidden" id="quiz">
+        <h3 id = "question">Questions</h3>
+        <p id = "answers"></p>
+        <p class="progress"></p>
+      </div>
 
-        <!-- <div class = "display2">
-            <h3 class = "questions">Question</h3>
-            <ul class = "answers">
-                <li class = "choice" id="a"><button></button></li>
-                <li class = "choice" id="b"><button></button></li>
-                <li class = "choice" id="c"><button></button></li>
-                <li class = "choice" id="d"><button></button></li>
-            </ul>
-
-        </div>
-         -->
-
+      <!--score-->
+      <div class = "results container hidden" id = results></div>
+      
     </main>
 
     <!--script tag-->
     <script src="./assets/js/script.js"></script>
-    
-</body>
+  </body>
 </html>
