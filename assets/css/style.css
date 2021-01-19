@@ -11,14 +11,53 @@ body {
     margin-bottom: 10px;
 }
 
+.inline {
+    display: inline;
+}
+
+input {
+    border: 3px solid rgb(168, 175, 177);
+}
+
 
 .timer-container {
     margin-right: 20px;
 
 }
 
+button {
+    border: 5px solid rgb(63, 223, 183);
+    border-radius: 25px;
+    background-color: aliceblue;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+}
+
+.start-button {
+    font-size: 20px;
+}
+
+.score-submit {
+    border-radius: 100%;
+    margin: 3px;
+    background-color: rgb(168, 235, 218);
+    font-size: 12px;
+}
+
+
+.answer-buttons {
+    border: 5px solid rgb(63, 223, 183);
+    border-radius: 0%;
+    margin: 2px;
+    background-color: aliceblue;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+    text-align: center;
+}
+
 main {
     border: 5px solid rgb(63, 223, 183);
+    border-radius: 25px;
     background-color: aliceblue;
     text-align: center;
     padding: 5%;

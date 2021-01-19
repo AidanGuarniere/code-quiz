@@ -3,7 +3,10 @@ const answerEl = document.getElementById("answers");
 const scoreEl = document.getElementById("results");
 const questionEl = document.getElementById("question");
 const responseEl = document.getElementById("response");
+const highScoreEl = document.getElementById("highScore");
+const submitEl = document.getElementById("submit");
 let answer;
+let highScorer;
 
 const timerEl = document.getElementById("set-timer");
 let timeLeft = 60;
@@ -70,24 +73,28 @@ const startTimer = () => {
 const askQuestions = () => {
   // count question
   questionNumber++;
+  if (questionNumber > 4) {
+    return;
+  } else {
+    // display according to questionNumber
+    questionEl.textContent = questionsArr[questionNumber].question;
 
-  // display according to questionNumber
-  questionEl.textContent = questionsArr[questionNumber].question;
+    // set answer space blank with inner html
+    answerEl.innerHTML = "";
 
-  // set answer space blank with inner html
-  answerEl.innerHTML = "";
+    // display answers
+    let answers = questionsArr[questionNumber].answers;
 
-  // display answers
-  let answers = questionsArr[questionNumber].answers;
+    // finds correct answer
+    answer = questionsArr[questionNumber].answerCheck;
 
-  // finds correct answer
-  answer = questionsArr[questionNumber].answerCheck;
-
-  // loop question/answer options
-  for (let i = 0; i < answers.length; i++) {
-    let answersCycle = document.createElement("button");
-    answersCycle.textContent = answers[i];
-    answerEl.appendChild(answersCycle);
+    // loop question/answer options
+    for (let i = 0; i < answers.length; i++) {
+      let answersCycle = document.createElement("button");
+      answersCycle.textContent = answers[i];
+      answerEl.appendChild(answersCycle);
+      answersCycle.classList.add('answer-buttons')
+    }
   }
 };
 
@@ -100,16 +107,24 @@ const showResponse = () => {
 };
 
 const displayScore = () => {
+  // remove hidden
   document.getElementById("quiz").classList.add("hidden");
   document.getElementById("results").classList.remove("hidden");
-  scoreEl.textContent = "Your Score: " + timeLeft;
-  //locally store score
-  if (typeof(Storage) !== 'undefined') {
-    //store
-    localStorage.setItem('timeLeft', timeLeft);
-  }
-};
+  document.getElementById("highScore").classList.remove("hidden");
+  document.getElementById("submit").classList.remove("hidden");
 
+  // create input and button for highscore submission
+  let scoreHolder = document.createElement("input");
+  let scoreSubmit = document.createElement("button")
+  highScoreEl.appendChild(scoreHolder);
+  submitEl.appendChild(scoreSubmit);
+  scoreSubmit.textContent = "Submit"
+  scoreSubmit.classList.add("score-submit")
+
+  // display score
+  scoreEl.textContent = "Your Score: " + timeLeft;
+  let highScorer = JSON.stringify(scoreHolder.textContent);
+};
 // respond to answer choice
 answerEl.addEventListener("click", (event) => {
   if (answer === event.target.textContent) {
@@ -121,6 +136,15 @@ answerEl.addEventListener("click", (event) => {
   }
   showResponse();
   askQuestions();
+});
+
+submitEl.addEventListener("click", () => {
+  // locally store user and score
+  if (typeof Storage !== "undefined") {
+    //store
+    localStorage.setItem('score', timeLeft);
+    localStorage.setItem('user', highScorer );
+  }
 });
 
 document.getElementById("start-button").addEventListener("click", startQuiz);
