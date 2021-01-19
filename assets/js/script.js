@@ -1,11 +1,11 @@
 // global variables
-let answerEl = document.getElementById("answers");
-let scoreEl = document.getElementById("results");
-let questionEl = document.getElementById("question");
-let responseEl = document.getElementById("response");
+const answerEl = document.getElementById("answers");
+const scoreEl = document.getElementById("results");
+const questionEl = document.getElementById("question");
+const responseEl = document.getElementById("response");
 let answer;
 
-let timerEl = document.getElementById("set-timer");
+const timerEl = document.getElementById("set-timer");
 let timeLeft = 60;
 
 // array of questions and answers
@@ -103,6 +103,11 @@ const displayScore = () => {
   document.getElementById("quiz").classList.add("hidden");
   document.getElementById("results").classList.remove("hidden");
   scoreEl.textContent = "Your Score: " + timeLeft;
+  //locally store score
+  if (typeof(Storage) !== 'undefined') {
+    //store
+    localStorage.setItem('timeLeft', timeLeft);
+  }
 };
 
 // respond to answer choice
