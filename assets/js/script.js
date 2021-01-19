@@ -1,16 +1,16 @@
 // global variables
-let answerEL = document.getElementById("answers");
+let answerEl = document.getElementById("answers");
 let scoreEl = document.getElementById("results");
 let questionEl = document.getElementById("question");
-let correctAnswer;
+let responseEl = document.getElementById("response");
+let answer;
 
-let timerEl = document.getElementById('set-timer');
-
+let timerEl = document.getElementById("set-timer");
 let timeLeft = 60;
 
 // array of questions and answers
 const questionsArr = [
-  // throw away question for counter 
+  // throw away question for counter
   {
     question: "What is 1 + 1?",
     answers: ["1", "11", "2", "0"],
@@ -28,8 +28,8 @@ const questionsArr = [
   },
   {
     question: "When was JavaScript created",
-    answers: [1999, 2005, 2006, 1995],
-    answerCheck: 1995,
+    answers: [1999, 2005, 2006, "1995"],
+    answerCheck: "1995",
   },
   {
     question: "What does the R in D.R.Y Code stand for?",
@@ -50,7 +50,7 @@ const startQuiz = () => {
   document.getElementById("intro").classList.add("hidden");
   document.getElementById("quiz").classList.remove("hidden");
   startTimer();
-  // askQuestions();
+  askQuestions();
 };
 
 // start timer
@@ -62,42 +62,60 @@ const startTimer = () => {
     if (timeLeft === 0 || questionNumber == questionsArr.length) {
       clearInterval(timer);
       setTimeout(displayScore);
-    } 
+    }
   }, 1000);
 };
 
 // cycle question/answer choices
 const askQuestions = () => {
   // count question
-  questionNumber++
+  questionNumber++;
 
-  // display according to questionNumber 
-  questionEl.textContent = questionsArr[questionNumber].question
+  // display according to questionNumber
+  questionEl.textContent = questionsArr[questionNumber].question;
 
   // set answer space blank with inner html
-  answerEL.innerHTML = "";
+  answerEl.innerHTML = "";
 
   // display answers
   let answers = questionsArr[questionNumber].answers;
 
-  // finds correct answer 
-  correctAnswer = questionsArr[questionNumber].answerCheck;
+  // finds correct answer
+  answer = questionsArr[questionNumber].answerCheck;
 
   // loop question/answer options
   for (let i = 0; i < answers.length; i++) {
-    let answersCycle = document.createElement('button');
+    let answersCycle = document.createElement("button");
     answersCycle.textContent = answers[i];
-    answersEl.appendChild(answersCycle);
+    answerEl.appendChild(answersCycle);
   }
 };
 
-answerEL.addEventListener('click', (event) => {
-  let responseEl = document.getElementById('response') [0]
+const hideResponse = () => {
+  responseEl.style.display = "none";
+};
 
+const showResponse = () => {
+  responseEl.removeAttribute("style");
+};
+
+const displayScore = () => {
+  document.getElementById("quiz").classList.add("hidden");
+  document.getElementById("results").classList.remove("hidden");
+  scoreEl.textContent = "Your Score: " + timeLeft;
+};
+
+// respond to answer choice
+answerEl.addEventListener("click", (event) => {
   if (answer === event.target.textContent) {
-    responseEl.textContent = "Correct!"
-    setTimeout(hideResponse)
+    responseEl.textContent = "Correct!";
+    setTimeout(hideResponse, 1000);
+  } else {
+    responseEl.textContent = "Incorrect :(";
+    timeLeft = timeLeft - 10;
   }
-})
+  showResponse();
+  askQuestions();
+});
 
-document.getElementById('start-button').addEventListener('click', startQuiz);
+document.getElementById("start-button").addEventListener("click", startQuiz);
